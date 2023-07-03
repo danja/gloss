@@ -1,0 +1,1 @@
+tidy -indent -o wiki-gloss-tidy.html -asxhtml wiki-gloss.html
