@@ -12,36 +12,42 @@ const doc = new DOMParser().parseFromString(raw, 'text/xml')
 
 const sr = new XMLSerializer()
 
-// console.log(sr.serializeToString(doc))
-
-console.log('Doing...');
-var childNodes = doc.getElementsByTagName('dl');
-
-var dl = childNodes[0]
 
 function normalize(text) {
     //  text.replace(/\s+/g, ' ')
-    text.replace(/\[\d+\]/g, '')
+    if (text === undefined) {
+        return ''
+    }
+    //  console.log('text - ' + text);
+    //  text.replace(/\[\d+\]/g, '')
     return text.replace(/\s+/g, ' ').trim()
 }
 
-// console.log(sr.serializeToString(one))
-var dtNode = ''
+// console.log(sr.serializeToString(doc))
 
-for (let i = 0; i < dl.childNodes.length; i++) {
-    let childNode = dl.childNodes[i];
-    if (childNode.nodeType === 1 && childNode.nodeName === 'dt') { // 1 is an element node
-        // printNodeNames(childNode);
-        //  console.log(childNode.nodeName);
-        dtNode = childNode
-    }
-    if (childNode.nodeType === 1 && childNode.nodeName === 'dd') { // 1 is an element node
-        console.log(dtNode.nodeName);
-        console.log(normalize(dtNode.textContent));
-        console.log(childNode.nodeName);
-        console.log(normalize(childNode.textContent));
-    }
 
+var dlNodes = doc.getElementsByTagName('dl');
+
+for (let i = 0; i < dlNodes.length; i++) {
+
+    let dl = dlNodes[i]
+
+    var dtNode = ''
+
+    for (let i = 0; i < dl.childNodes.length; i++) {
+        let childNode = dl.childNodes[i];
+        if (childNode.nodeType === 1 && childNode.nodeName === 'dt') { // 1 is an element node
+            // printNodeNames(childNode);
+            //  console.log(childNode.nodeName);
+            dtNode = childNode
+        }
+        if (childNode.nodeType === 1 && childNode.nodeName === 'dd') { // 1 is an element node
+            console.log(dtNode.nodeName);
+            console.log(normalize(dtNode.textContent));
+            console.log(childNode.nodeName);
+            console.log(normalize(childNode.textContent));
+        }
+    }
 }
 
 /*
