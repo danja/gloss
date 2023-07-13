@@ -27,6 +27,7 @@ function normalize(text) {
     }
     //  console.log('text - ' + text);
     text = text.replace(/\[[^\]]*]/g, ' ')
+    text = text.replace(/"/g, "'")
     return text.replace(/\s+/g, ' ').trim()
 }
 
@@ -42,18 +43,18 @@ function flatten(text) {
     return encodeURIComponent(text)
 }
 
-var turtle = "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\
-              @prefix dc: <http://purl.org/dc/terms/> .\
-              @prefix skos: <http://www.w3.org/2004/02/skos/core#> .\
-              \
-          "
+var turtle = " \
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . \n \
+@prefix dc: <http://purl.org/dc/terms/> . \n \
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . \n\n"
 
 function addTurtle(term, definition) {
     let uri = 'http://hyperdata.it/gloss/' + flatten(term) + '_' + MD5(definition).substring(0, 7)
     // console.log(uri)
-    turtle = turtle + '<' + uri + '> a skos:Concept;'
-    turtle = turtle + '      dc:title "' + term + '" ;'
-    turtle = turtle + '      skos:definition "' + term + '" .\n'
+    turtle = turtle + '<' + uri + '> a skos:Concept; \n'
+    turtle = turtle + '      dc:title "' + term + '" ; \n'
+    turtle = turtle + '      skos:definition "' + definition + '" ; \n'
+    turtle = turtle + '      skos:inScheme <https://en.wikipedia.org/wiki/> . \n\n'
     return turtle
 }
 
