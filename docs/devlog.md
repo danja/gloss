@@ -1,3 +1,9 @@
+ sudo systemctl start fuseki
+
+ admin=sasha
+
+
+
 putting in graph
 
 <http://hyperdata.it/gloss/>

@@ -6,7 +6,7 @@
 <uri> skos:Concept ;
 dc:title
 skos:definition
-
+skos:inScheme <https://en.wikipedia.org/wiki/>
 
 rdfs:label
 rdfs:seeAlso
