@@ -3,7 +3,6 @@ The next phase, keyword extraction, is an iterative process. The steps are : rea
 Now read the Keywords file and start the next phase, definition generation, another iterative process. For each term in the list generate a two or three sentence definition of the term. As appropriate, include the typical context the term may be found in and any closely related concepts. Create this definition now, do not use placeholders.
 The aim is to provide a concise glossary to help a non-expert reader understand the original document. Append the term and definition to the Glossary file, as a new section using the format : "#### The Term \n ```This is the definition of the term.```\n\n". Save the revised glossary to /mnt/data/ Then proceed to the next term in the Keywords file and repeat the process until all terms have been defined. Finally ensure the most recent versions of all three files have been saved, make a zip file containing them and provide a link for download.
 
-Make a glossary for "Generality in Artificial Intelligence" by John McCarthy
 
 
 
