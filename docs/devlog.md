@@ -1,6 +1,5 @@
  sudo systemctl start fuseki
 
- admin=sasha
 
 
 
